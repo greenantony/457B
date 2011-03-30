@@ -1,0 +1,14 @@
+\contentsline {section}{Summary}{1}
+\contentsline {section}{\numberline {1} \phantom {}Introduction}{2}
+\contentsline {section}{\numberline {2} \phantom {}Advantages}{3}
+\contentsline {section}{\numberline {3} \phantom {}What are T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {} and \LaTeX {}?}{4}
+\contentsline {section}{\numberline {4} \phantom {}Learning \LaTeX }{6}
+\contentsline {subsection}{\numberline {4.1} \phantom {}How \LaTeX {} works}{7}
+\contentsline {section}{\numberline {5} \phantom {}Source}{9}
+\contentsline {section}{\numberline {6} \phantom {}To do}{10}
+\contentsline {section}{\numberline {7} \phantom {}Conclusions}{11}
+\contentsline {section}{\numberline {8} \phantom {}Recommendations}{12}
+\contentsline {section}{\hbox to\@tempdima {9\hfil }{References}}{13}
+\contentsline {section}{\numberline {A} \phantom {}Bugs}{14}
+\contentsline {section}{\numberline {B} \phantom {}Colophon}{15}
+\contentsline {section}{\numberline {C} \phantom {}GNU General Public License}{16}

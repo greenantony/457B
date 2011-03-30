@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{ref:coopman}
+{University of Waterloo, Co-operative Education \& Career Services},
+  ``Co-operative education \& career services student reference manual.''
+\newblock \url{http://www.cecs.uwaterloo.ca/manual/} (current Aug.\ 2002).
+
+\bibitem{ref:eceguidelines}
+W.~M. {Loucks PEng}, G.~H. Freeman, and J.~A. {Barby PEng}, ``{E\&CE} work term
+  report guidelines.''
+\newblock \url{http://www.ece.uwaterloo.ca/~wtrc/WrkTrmRpt.html} (current Aug.\
+  2002).
+
+\bibitem{ref:taocp}
+D.~E. Knuth, {\em The art of computer programming}.
+\newblock Reading, MA: Addison-Wesley, 1997.
+
+\bibitem{ref:donpicture}
+``Knuth: Graphics.''
+\newblock \url{http://www-cs-faculty.stanford.edu/~knuth/graphics.html}
+  (current Jan.\ 2003).
+
+\bibitem{ref:vim}
+``welcome : vim online.''
+\newblock \url{http://vim.sourceforge.net} (current Aug.\ 2002).
+
+\bibitem{ref:vi}
+``{VI} lovers home page.''
+\newblock \url{http://www.thomer.com/vi/vi.html} (current Aug.\ 2002).
+
+\bibitem{ref:emacs}
+``{GNU} {E}macs --- {GNU} project --- {F}ree {S}oftware {F}oundation ({FSF}).''
+\newblock \url{http://www.gnu.org/software/emacs/emacs.html} (current Aug.\
+  2002).
+
+\bibitem{ref:short}
+T.~Oetiker, H.~Partl, I.~Hyna, and E.~Schlegl, {\em The not so short
+  introduction to \LaTeXe: or \LaTeXe{} in 95 minutes}.
+\newblock 2001.
+\newblock \url{http://people.ee.ethz.ch/~oetiker/lshort/} (current Aug.\ 2002).
+
+\bibitem{ref:simplified}
+H.~J. Greenberg, {\em A simplified introduction to \LaTeX}.
+\newblock 2001.
+\newblock
+  \url{http://carbon.cuderwer.edu/~hgreenbe/aboutme/simplified-intro.html}
+  (current Aug.\ 2002).
+
+\bibitem{ref:latex2e}
+L.~Lamport and D.~{Bibby (Illustrator)}, {\em \LaTeX: a document preparation
+  system}.
+\newblock Reading, MA: Addison-Wesley, second~ed., 1994.
+
+\bibitem{ref:tetex}
+``The {teTeX} homepage.''
+\newblock \url{http://www.tug.org/teTeX/} (current Aug.\ 2002).
+
+\bibitem{ref:miktex}
+``{MikTeX} project page.''
+\newblock \url{http://www.miktex.org} (current Aug.\ 2002).
+
+\bibitem{ref:gs}
+``ghostscript.com.''
+\newblock \url{http://www.ghostscript.com} (current Aug.\ 2002).
+
+\end{thebibliography}

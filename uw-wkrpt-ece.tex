@@ -1,0 +1,221 @@
+% uw-wkrpt-ece.tex - An example work report that uses uw-wkrpt.cls
+% Copyright (C) 2002,2003  Simon Law
+% 
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% We begin by calling the workreport class which includes all the
+% definitions for the macros we will use.
+\documentclass[ece]{uw-wkrpt}
+
+% We will use some packages to add functionality
+\usepackage{graphicx} % Include graphic importing
+
+% Now we will begin writing the document.
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IMPORTANT INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% First we, should create a title page.  This is done below:
+% Fill in the title of your report.
+\title{Memcached vs MySQL Query Cache. An analysis of database caching solutions for time series analysis }
+
+% Fill in your name.
+\author{John Antony Green}
+
+% Fill in your student ID number.
+\uwid{20235387}
+
+% Fill in your home address.
+\address{256 Phillip St. Unit 45.,\\*
+         Kingston, ON\ \ N2L 6B6}
+
+% Fill in your employer's name.
+\employer{CPP Investment Board}
+
+% Fill in your employer's city and province.
+\employeraddress{Toronto, ON}
+
+% Fill in your school's name.
+\school{University of Waterloo}
+
+% Fill in your faculty name.
+\faculty{Faculty of Engineering}
+
+% Fill in your e-mail address.
+\email{ja2green@engmail.uwaterloo.ca}
+
+% Fill in your term.
+\term{3A}
+
+% Fill in your program.
+\program{Computer Engineering}
+
+% Fill in the department chair's name.
+\chair{Manoj Sachdev}
+
+% Fill in the department chair's mailing address.
+\chairaddress{E\&CE Department,\\*
+              University of Waterloo,\\*
+	      Waterloo, ON\ \ N2L 3G1}
+
+% If you are writing a "Confidential 1" report, uncomment the next line.
+%\confidential{Confidential-1}
+
+% If you want to specify the date, fill it in here.  If you comment out
+% this line, today's date will be substituted.
+\date{May 11, 2009}
+
+% Now, we ask LaTeX to generate the title.
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \frontmatter will make the \section commands ignore their numbering,
+%% it will also use roman page numbers.
+\frontmatter
+
+\begin{letter}
+
+
+This report, entitled \thetitle\ , was prepared as my 2B Work Term Report for the CPP InvestmentBoard. This report is in fulfillment of the course WKRPT 300. The intent of this report is to analyze
+several data caching solutions, compare their performance and ultimately come up with a suitable recommendation.
+The CPP Investment Board is an government independent organization createdto monitor and invest the funds of the Canada Pension Plan.I was a member of the Research Team, within the Capital Markets Division,part of larger, encompassing Public Market Investments Department. Our researchrequired us to store and maintain large amounts of finnancial data, which we wouldsubsequently run analytics on. This report focuses on the some of the ways in which we data retrieval 
+using caches. 
+I would like to thank Mr. Manjeet Ram for providing direction on this researchendeavor. I hereby conrm that I have received no further help other than whatis mentioned above in writing this report. I also conrm this report has not beenpreviously submitted for academic credit at this or any other academic institution.
+
+\end{letter}
+
+\section{Contributions}
+
+The CPP (Canada Pension Plan) Investment Board is a organization independent ofgovernment, created in 1997 to invest the funds held by the CPP. CPPIB is a crowncorporation created by an Act of Parliament [1]. Prior to 1997, the CPP fund wasfully invested in federal government bonds, but has since diversied both by assetclass and geographically. Now, it holds a diverse set of investments in equities, xedincome, and real estate. I worked within the Capital Markets Department, whichfocused mainly on trade execution in the public markets. This includes tradableinstruments such as equities, bonds, foreign exchange currency pairs , and derivatives.The Capital Markets (CM) Department consisted of approximately thirty people. Theresearch team, of which I was a member, is a relatively small subset of the CMdepartment . Our team consisted of twelve people.
+The research team was composed of software developers and mathematicians,focused on creating software that performed various analytics and computations on
+financial data. The end result of these processes was frequently a report which wasin turn used by members of other departments within Capital Markets, to aid themwith financial analysis. The volume of data required for these processes was extremelylarge. We dealt mainly with time series data, a sequence of data points measured atat successive times. In our context, the sequence typically consisted of the prices ofa financial instrument. The software our team developed ran an array of analyticson the aforementioned time series data, ranging from simple to the computationallyintensive. The overarching goal of our team was to provide an accurate, organizedand useful analysis of data for the investment professionals within our department.This would, ideally, contribute to more informed decisions, and in turn help generateprofit.
+My primary duties were application development, database and system adminis-tration, and research into alternative data solutions. The bulk of my time was di-rected towards the development, maintenance and deployment of the aforementionedsoftware. I typically worked on small applications where I was the sole developer.Since our team was relatively small, the development process was iterative in na-ture. There was no formal quality assurance department; we were required to testour own software. Maintenance and improvement of existing software was also one ofmy responsibilities. In addition to this I was researching ways to speed up fetching time series
+from disk using caches. I developed a project which used a distributed caching system 
+to handle frequently used sets of financial data. Throughout the development of the project, 
+I encountered various design decisions, which form the basis for this report. 
+
+The CM department wanted faster data access on time series queries and I suggested 
+implementing a caching system.  My manager asked me to complete a qualitative and quantitative analysis of possible solutions and 
+then implement the solution which I thought was superior. 
+Through this analysis, I was able to improve my ability in technical analysis and the associatedpresentation of ideas. The software I helped develop is being used to generate reports and manage dataused by our department. As mentioned above, this will ideally help our departmentand others make more informed decisions and ultimately contribute to the bottomline of the fund.
+\section{Summary}
+
+The purpose of this report is to analyze several data caching approaches in the context of time series data. 
+The solutions which are being analyzed are Memcached, a standalone caching application and MySQL Query Cache, a feature within the MySQL database system. The intent of this report is to compare the performance of 
+a standalone object caching system with a integrated query caching system and draw some conclusions as to their feasibility in the realm of time series data analysis. The reader should gain perspective and insight into the advantages of a cache over continually reading from disk as well as the possible implementations of such a caching system. This report is intended for anyone interested in open source, freely available caching techniques for financial data. 
+
+The caching systems will be first analyzed qualitatively, highlighting some of the architectural features of each, and the relative advantages and disadvantages of implementation. Quantitative analysis will follow, in the form of a benchmark for a large time series. This analysis should give the reader a good view into not only the relative performance of each solution, but also it's suitability for different contexts through an analysis of the architecture and implementation details. 
+
+The report concludes that Memcached provides optimal performance and greater flexibility and convenience in regards to object serialization and processing. MySQL Query Cache, on the other hand, provides slightly worse, yet similar performance, but does not require a standalone process in addition to the main database store. For raw performance and ease of implementation, Memcached is superior. Although, since the performance of each solution is similar, the choice of a caching system can be largely be based on specific business need and situation. 
+
+Either of the caching systems analyzed in this report provide an huge performance advantage  over continually fetching from disk. Since both of these solutions are free and the only cost of implementation is the server hardware involved,there is little reason to resist  the implementation of such a system. My recommendation is that a memcahed based solution be implemented if optimal performance and greater flexibility is required, but if an exisiting MySQL server exists, query caching is a good option, with similar performance. In the context of my employer, I would recommend that MySQL query caching be enabled instead of the implementation of a memcached client/server, since all of our data is currently housed in a MySQL server. The benefit of a memcached based implementation would be minimal and would not offset the cost of such a system. 
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REPORT BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \main will make the \section commands numbered again,
+%% it will also use arabic page numbers.
+\mainmatter
+
+\section{Introduction}
+The report begins with an overview of the caching solutions which will be subsequently analyzed. For each solution, there will be a brief background section, followed by an analysis of their architecture and functionality. A performance benchmark will follow. The majority of the background information was obtained from firsthand knowledge through test implementation of the solutions. Additional information is referenced accordingly. 
+
+
+\subsection{Background}
+A cache is a temporary storage area where frequently accessed data can be stored for fast access. Once data is cached, it can be used in the future by quickly accessing the cached copy instead of the of re-fetching the original value. By taking advantage of the concept of temporal locality: the idea that data is frequently reused within relatively small time durations, caching has become an extremely effective tool in improving performance and scalability. The concept of caching has been used in many different areas of computer science. Perhaps the most  famous example is the CPU cache, which is used by the CPU to reduce access time to memory. However, caching is not limited to applications within hardware design, as the same concept has been implemented within software. An area of application which is of specific interest is database caching. 
+
+The volume of financial data has grown considerably over the past decade, and the databases used to store this data must use increasingly sophisticated methods in order to maintain adequate performance for analysis. 
+Database caching techniques have been implemented as an aforementioned strategy. In the financial industry, time series data is usually accessed repeatedly, since computations are generally done on a single asset repetitively. The data access patterns are therefore perfectly exploitable by a caching system, translating into significant performance advantages. By placing a caching system in the middle tier, and caching the results of queries, or the objects obtained from the result set, performance can be significantly improved. 
+
+% talk about LRU and replacement algos?
+
+
+The main strategies involved in database caching consist of an integrated solution within the database system itself, which simply caches the results of queries 
+
+
+\section{Overview of Products}
+\subsection{Memcahed}
+Memcached is a high performance, distributed memory caching system. It was originally developed by Danga Interactive for LiveJournal, a website which was doing 20+ million dynamic page views per day. Memcached was developed to alleviate database load, and thus yield faster page loads from the user perspective. It is frequently used by large database driven websites to cache data and objects in memory, preventing unnecessary and costly database fetches.  This caching system is used by many large well known sites, including Youtube, Wikipedia, Facebook, and Digg. 
+
+Memcached provides a large hash table distributed across multiple servers. It works by allocating a block of memory, of which the size is user defined. This block will contain key value pairs, mimicking the functionality of a hash table. However, memcached is unique in the fact that it spans transparently across servers, creating a massive hash table, spread over a network. Thus any computer with available memory can be used as an additional node, increasing the size of the cache. 
+
+Memcached is a relatively small 3000 line program written in C, which runs as a lightweight daemon on a server machine. Key value pairs are inserted programmatically using a client API.  There is no restriction on the type of data which can be inserted into the cache. When the table becomes full, data is removed using the LRU replacement algorithm described above. 
+
+%memcached diagram 
+
+
+\subsection{MySQL Query Cache}
+MySQL is an open source relational database management system. A feature included in MySQL is the ability to cache a SELECT statement and its corresponding result as a key value pair. If the same statement is encountered later, the result will be retrieved from the cache instead of executing the statement again. The cache is shared across sessions, so two users can retrieve the same result set from the cache. 
+
+If the underlying table associated with a query  is altered, any entries in the cache 
+
+
+
+
+\section{Architecture Comparison}
+\subsection{Memcached}
+\subsection{MySQL Query Cache}
+
+\section {Implementation Comparison}
+\subsection{Memcached}
+\subsection{MySQL Query Cache}
+
+\section{Performance Analysis}
+\subsection{Background}
+\subsection{Results}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BACK MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \backmatter will make the \section commands ignore their numbering,
+\backmatter
+
+% Here, we insert a References section, which will be formatted properly.
+% The list of works you have referenced should be in FILENAME.bib,
+% which will be workreport-sample.bib, if you use the command below.
+%
+% Note, you will need to process the document in a certain order.  First,
+% run LaTeX.  The % first pass will allow LaTeX to build a list of 
+% references, it may % emit warning messages such as:
+%   LaTeX Warning: Reference `app:gnugpl' on page 4 undefined on input line 277.
+%   LaTeX Warning: There were undefined references.
+% This is normal.  Now you run BiBTeX in order to generate the proper
+% layout for the references.  After this, you run LaTeX once more.
+\bibliography{uw-wkrpt-bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \appendix will reset \section numbers and turn them into letters.
+%%
+%% Don't forget to refer to all your appendices in the main report.
+
+\end{document}
